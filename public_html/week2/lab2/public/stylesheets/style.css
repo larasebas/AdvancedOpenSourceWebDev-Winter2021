@@ -1,6 +1,7 @@
 body {
   padding: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  color: #0b0f0b;
 }
 
 a {
@@ -20,8 +21,8 @@ input[type=text], select, textarea {
 
 /* Style the submit button with a specific background color etc */
 input[type=submit] {
-  background-color: #6566;
-  color: rgb(150, 89, 89);
+  background-color: rgba(255, 254, 255, 0.4);
+  color: rgb(7, 6, 6);
   padding: 12px 20px;
   border: none;
   border-radius: 4px;
@@ -30,7 +31,7 @@ input[type=submit] {
 
 /* When moving the mouse over the submit button, add a darker green color */
 input[type=submit]:hover {
-  background-color: #45a049;
+  background-color: #7922c0;
 }
 
 /* Add a background color and some padding around the form */
