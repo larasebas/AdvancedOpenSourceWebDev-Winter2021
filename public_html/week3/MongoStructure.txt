@@ -1,0 +1,7 @@
+MongoDB server
+    --Databases
+        --Collections(Actual Databases)
+            Users
+            Indexes
+            PlayerData
+            
