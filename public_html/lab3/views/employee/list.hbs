@@ -1,0 +1,28 @@
+<h3><a href="/employee" class="btn btn-secondary"><i class="fa fa-plus"></i>New Employee</a>Employee List</h3>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Full Name</th>
+            <th>Department</th>
+            <th>Start Date</th>
+            <th>Job Title</th>
+            <th>Phone</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        {{#each list}}
+        <tr>
+            <td>{{this.fullName}}</td>
+            <td>{{this.department}}</td>
+            <td>{{this.startDate}}</td>
+            <td>{{this.jobTitle}}</td>
+            <td>{{this.phone}}</td>
+            <td>
+                <a href="/employee/{{this.id}}"><i class="fa fa-pencil fa-lg" aria-hidden="true"></i></a>
+                <a href="/employee/delete/{{this.id}}" onclick="return confirm('Are you sure?')"><i class="fa fa-trash fa-lg" aria-hidden="true"></i></a>
+            </td>
+        </tr>
+        {{/each}}
+    </tbody>
+</table>
