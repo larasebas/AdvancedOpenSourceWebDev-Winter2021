@@ -103,12 +103,12 @@
             let myRequest = new Request(url, myInit)
 
             fetch(myRequest).then(function(response){
-                let contentType = response.headers.get('content-type')
-                if(contentType && contentType.includes('application/json')){
+                let contentType = response.headers.get("content-type")
+                if(contentType && contentType.includes("application/json")){
                     return response.text()
                 }
                 if(response.status === 204){
-                    return 'Delete'
+                   return 'Delete'
                 }
                 throw new TypeError("This isn't JSON")
 

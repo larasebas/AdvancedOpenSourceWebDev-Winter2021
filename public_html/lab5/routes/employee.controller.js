@@ -39,29 +39,50 @@ module.exports.emplReadOne = function(req, res){
     
 }
 
-// employee search by department
-module.exports.emplSearch = function(req, res){
-    
-    if(req.params && req.params.department){
-        debug('Getting all employees in department =', req.params.department)
+// employee sort by column
+module.exports.emplSortByColumn = function(req,res){
+    if (!req.params.column){
+        sendJSONresponse(res,404,{
+            "message": "Please enter a matching column"
+        })
+        return
+    }
 
-        Employee.findById(req.params.id).exec().then(function(results){
+    let value = (req.params.order == 'asc') ? 1 : -1,
+    col = req.params.column
+
+    Employee.find().sort()({[col]:value}).exec()
+    .then((results) => {
         sendJSONresponse(res,200,results)
-    
     })
     .catch(function(err){
-        sendJSONresponse(res,404,{
-            "message":"Employee ID not found"
-        })
+        debug(err)
+        sendJSONresponse(res,400,err)
     })
-    }
-    else{
-        sendJSONresponse(res,404,{
-            "message":"Employee ID not found"
-        })
-    }
-    
 }
+
+// employee search by
+
+module.exports.emplSearchBy = function(req,res){
+    let value = req.params.searchValue,
+    column = req.params.columnName
+
+    if (!value || !column){
+        sendJSONresponse(res,404,{
+            "message":"Please supply column"
+        })
+        return
+    }
+
+    Employee.find({[column]:value}).exec().then((results) => {
+        sendJSONresponse(res,200,results)
+    })
+    .catch(function(err){
+        debug(err)
+        sendJSONresponse(res,400,err)
+    })
+}
+
 
 // post routes /api/v1/employees
 

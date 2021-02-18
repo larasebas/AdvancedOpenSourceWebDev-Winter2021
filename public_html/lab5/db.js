@@ -7,8 +7,10 @@ if(process.env.NODE_ENV == 'production'){
 }
 
 mongoose.connect(dbURI, {
+
     useNewUrlParser:true,
     useUnifiedTopology:true
+    
 })
 
 mongoose.Promise = Promise

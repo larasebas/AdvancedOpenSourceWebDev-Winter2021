@@ -10,6 +10,10 @@ router.put('/employees/:id', ctrlEmpl.emplUpdateOne)
 router.delete('/employees/:id',ctrlEmpl.emplDeleteOne)
 
 // searching
-router.get('/employee/')
+router.get('/employees/search/:columnName/:searchValue', ctrlEmpl.emplSearchBy)
+
+// sorting 
+router.get('/employees/search/:column/:order', ctrlEmpl.emplSortByColumn)
+
 
 module.exports = router;
